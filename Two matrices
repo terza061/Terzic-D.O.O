@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define MAX 50
+
+main()
+{
+	int br,j,i,m,n;
+	double a[MAX][MAX],b[MAX][MAX],c[MAX][MAX];
+	
+	srand(time(NULL));
+	
+	while(1){
+		printf("Dimensions of matrix:(0 for exit) ");
+		scanf("%d",&m);
+		scanf("%d",&n);
+		if(m > MAX || m < 0 || n > MAX || m < 0){
+			printf("Incorrect input. Try again!");
+			continue;
+		}
+		
+		if(m == 0 || n == 0){
+			printf("Bye.");
+			break;
+		}
+		
+		br = m * n;
+		
+		printf("Input %d elements of first matrix. \n",br);
+		
+		for(i = 0; i < m; i++){		//input first matrix
+			for(j = 0; j < n; j++){
+				printf("1.Matrix [%d,%d] ---> ",i+1,j+1);
+				scanf("%f",&a[i][j]);
+			}
+		}
+		
+		for(i = 0; i < m; i++){		//printing first matrix
+			for(j = 0; j < n; j++){
+				printf("%6.2f",a[i][j]);
+			}
+			printf("\n");
+		}
+		
+		for(i = 0; i < m; i++){		//input of second matrix
+			for(j = 0; j < n; j++){
+				printf("2.Matrix [%d,%d] ---> ",i+1,j+1);
+				scanf("%f",&b[i][j]);
+			}
+		}
+		
+		for(i = 0; i < m; i++){		//printing second matrix
+			for(j = 0; j < n; j++){
+				printf("%6.2f",b[i][j]);
+			}
+			printf("\n");
+		}
+		
+		printf("Result is: \n");
+		
+		for(i = 0; i < m; i++){		//making a result
+			for(j = 0; j < n; j++){
+				c[i][j] = a[i][j] + b[i][j];
+			}
+		}
+		
+		for(i = 0; i < m; i++){		//printing a result
+			for(j = 0; j < n; j++){
+				printf("%6.2f",c[i][j]);
+			}
+			printf("\n");
+		}
+	}
+}
